@@ -1,3 +1,9 @@
+This is just a minor change to the code provided at: https://github.com/gregmoser/MuraHoth
+I have modified the styles so the exception details align properly and I’ve fixed the binding for the exception link list.
+Under is the original readme from https://github.com/gregmoser
+
+--------------------------------------------- END MODIFICATION ---------------------------------------------
+
 		---------------------------------------------
 		---------------------------------------------
 		---------------------------------------------
