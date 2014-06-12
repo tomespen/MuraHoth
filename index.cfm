@@ -1,6 +1,8 @@
 <cfsavecontent variable="body">
 	<style>
-		
+		div#hoth_container {
+			margin-top: 20px;
+		}
 		div#list {
 			float: left;
 			width: 120px;
@@ -10,7 +12,8 @@
 			list-style:none;
 		}
 		div#detail {
-			margin-left: 120px;
+			float: right;
+			width: 800px;
 		}
 		div#detail dl {
 			font-family: monospace;
@@ -98,19 +101,23 @@
 					if(!isNaN(i)){
 						var ex = Hoth.ExceptionsByVolume[i];
 						convertKeysToLowercase(ex);
-						exLinksHTML += '<li><a href="#' + ex.filename + '" data-id="' + ex.filename + '">' +
+						exLinksHTML += '<li><a href="#' + ex.filename + '" data-id="' + ex.filename + '" class="hothlink">' +
 						ex.js.short + '</a> (' + ex.incidentcount + ')</li>';
 						jQuery('#listing ul').html(exLinksHTML);	
+						doBind();
 					}
 				}
 				
 			}
 	
 			// -----------------------------------------------------------------
-			jQuery('#listing a').live('click',function(){
-				var id = jQuery(this).attr('data-id').toLowerCase();
-				formatException(id);
-			});	
+
+			function doBind() {
+				jQuery('#listing a').on('click',function(){
+					var id = jQuery(this).attr('data-id').toLowerCase();
+					formatException(id);
+				});
+			}
 			
 			function formatException(id) {			
 				jQuery.ajax(
